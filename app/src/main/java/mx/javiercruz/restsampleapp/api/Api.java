@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import mx.javiercruz.restsampleapp.interfaces.GenericEventListener;
+import mx.javiercruz.restsampleapp.models.Product;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -84,16 +85,16 @@ public class Api {
 
 
     //obs
-    private Observable<Object> getProductObs() {
+    private Observable<Product> getProductObs() {
         return webService.product()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
     //calls
-    public void getProductAPI(GenericEventListener<Object> listener) {
-        Observable<Object> productObs = Api.getInstance().getProductObs();
-        productObs.subscribe(new Subscriber<Object>() {
+    public void getProductAPI(GenericEventListener<Product> listener) {
+        Observable<Product> productObs = Api.getInstance().getProductObs();
+        productObs.subscribe(new Subscriber<Product>() {
             @Override
             public void onCompleted() {}
 
@@ -104,7 +105,7 @@ public class Api {
             }
 
             @Override
-            public void onNext(Object item) {
+            public void onNext(Product item) {
                 listener.onSuccess(item);
             }
         });

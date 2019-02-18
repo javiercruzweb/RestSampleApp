@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.javiercruz.restsampleapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".RestSampleAppApplication"
         android:allowBackup="true"
