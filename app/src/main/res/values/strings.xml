@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RestSampleApp</string>
+    <string name="product_name">Nombre del producto</string>
+    <string name="department">Departamento</string>
+    <string name="product_sku">Código</string>
+    <string name="product_base_price">Precio $</string>
 </resources>
